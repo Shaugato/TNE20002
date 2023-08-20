@@ -1,0 +1,112 @@
+! Extended  ACLS  
+
+
+!  Business denying  technical support and server1
+
+Ip access-list extended BUSINESS
+Permit  icmp 77.32.0.0 0.0.1.255 77.32.7.144 0.0.0.15 echo-reply 
+Deny ip 77.32.0.0 0.0.1.255 77.32.7.144  0.0.0.15
+Deny ip 77.32.0.0 0.0.1.255 77.32.7.16 0.0.0.15
+Permit ip any any 
+
+Int gi 0/0/1.11
+Ip access-group BUSINESS  in 
+
+
+
+
+!Printer denying access to techincal and  server 1
+
+Ip access-list extended PRINTER
+Permit icmp 77.32.7.236 0.0.0.3 77.32.7.144  0.0.0.15 echo-reply 
+Deny ip 77.32.7.236 0.0.0.3 77.32.7.144  0.0.0.15
+deny ip 77.32.7.236 0.0.0.3 77.32.7.16 0.0.0.15
+Permit ip any any 
+
+Int gi 0/0/1.12 
+Ip access-group PRINTER in 
+  
+
+! Leasing Group denying access to technical and server1 
+
+Ip access-list extended Leasing 
+Permit icmp 77.32.4.0 0.0.0.255 77.32.7.144  0.0.0.15 echo-reply 
+Deny ip 77.32.4.0 0.0.0.255 77.32.7.144  0.0.0.15 
+Deny ip 77.32.4.0 0.0.0.255 77.32.7.16 0.0.0.15
+Permit ip any any 
+ 
+Int gi 0/0/1.21
+Ip access-group Leasing in
+
+
+! Marketing vlan denied access to techinical support but accessing ping reply ,leasing and server1 
+
+Ip access-list extended MARKETING 
+Permit icmp 77.32.2.0 0.0.0.255 77.32.7.144  0.0.0.15  echo-reply 
+Deny ip 77.32.2.0 0.0.0.255  77.32.7.144  0.0.0.15
+
+Permit icmp 77.32.2.0 0.0.0.255 77.32.4.0 0.0.0.255 echo-reply 
+deny ip 77.32.2.0 0.0.0.255 77.32.4.0 0.0.0.255
+
+Deny ip 77.32.2.0 0.0.0.255 77.32.7.16 0.0.0.15 
+Permit ip any any 
+
+Int gi0/0/1.22 
+Ip access-group MARKETING in 
+
+
+! Vehicle Servicing denied access to all vlans  and server1 and Technical support 
+
+Ip access-list extended VECHICLE 
+Permit icmp 77.32.7.208 0.0.0.15 77.32.0.0 0.0.1.255 echo-reply 
+deny ip  77.32.7.208 0.0.0.15 77.32.0.0 0.0.1.255 
+
+Permit icmp 77.32.7.208 0.0.0.15 77.32.7.236  0.0.0.3 echo-reply 
+Deny ip 77.32.7.208 0.0.0.15 77.32.7.236  0.0.0.3 
+
+Permit icmp 77.32.7.208 0.0.0.15 77.32.7.64  0.0.0.15 echo-reply 
+Deny ip 77.32.7.208 0.0.0.15 77.32.7.64  0.0.0.15
+
+Permit icmp 77.32.7.208 0.0.0.15 77.32.4.0 0.0.0.255 echo-reply 
+Deny ip 77.32.7.208 0.0.0.15 77.32.4.0 0.0.0.255 
+
+Permit icmp 77.32.7.208 0.0.0.15 77.32.2.0 0.0.0.255 echo-reply 
+Deny ip 77.32.7.208 0.0.0.15 77.32.2.0 0.0.0.255
+
+Permit icmp 77.32.7.208 0.0.0.15  77.32.7.144 0.0.0.15 echo-reply 
+Deny ip 77.32.7.208 0.0.0.15  77.32.7.144 0.0.0.15
+
+Permit icmp 77.32.7.208 0.0.0.15 77.32.7.0 0.0.0.15 echo-reply 
+Deny ip 77.32.7.208 0.0.0.15 77.32.7.0 0.0.0.15 
+
+Permit icmp 77.32.7.208 0.0.0.15 77.32.7.16 0.0.0.15 echo-reply 
+Deny ip 77.32.7.208 0.0.0.15 77.32.7.16 0.0.0.15
+
+Deny ip  77.32.7.208 0.0.0.15 77.32.7.16 0.0.0.15 
+ 
+Permit icmp 77.32.7.208 0.0.0.15 77.32.7.144  0.0.0.15  echo-reply
+Deny ip 77.32.7.208 0.0.0.15 77.32.7.144 0.0.0.15 
+
+Permit ip any any 
+
+Int gi 0/0/1.23 
+Ip access-group VECHICLE  in 
+
+
+
+!Standard ACL for ssh access to Sydney switches 
+
+Ip access-list standard ACLSSH
+Permit 77.32.7.144 0.0.0.15 
+Deny any 
+
+
+Ip domain-name case.study 
+crypto key generate rsa general-keys modulus 1024
+username casestudy privilege 15 secret cisco
+line vty 0 15 
+transport input ssh 
+login local 
+access-class ACLSSH in 
+
+

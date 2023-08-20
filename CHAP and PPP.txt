@@ -1,0 +1,27 @@
+ CHAP and PPP
+__________________
+!Config on gateway
+
+int s0/2/0
+encapsulation ppp
+no sh
+
+username ISP password cisco
+
+int s0/2/0
+ppp authentication chap
+
+
+
+-----------------
+!Configure on ISP
+
+int s0/1/0
+encapsulation ppp
+no sh
+
+username HobartRouter password cisco
+
+interface s0/1/0
+
+ppp authentication chap

@@ -1,0 +1,49 @@
+MD5 And bandwidth:
+
+----------------------------
+
+!Sydney Internal Router
+int s0/1/0
+ip ospf message-digest-key 1 md5 MYPASS
+ip ospf authentication message-digest
+
+
+!Hobert internal route OSP
+int s0/1/0
+ip ospf ospf message-digest-key 1 md5 MYPASS
+ip ospf authentication message-digest
+
+
+!enable OSPF authentication
+router ospf 1
+area 0 authentication message-digest
+
+
+
+----configuring bandwith----
+!sydney
+int s0/1/0
+bandwidth 256
+int s0/1/1
+bandwidth 256
+
+!Perth
+int s0/1/0
+bandwidth 256
+int s0/1/1
+bandwidth 256
+
+!Melbourne
+int s0/1/0
+bandwidth 256
+int s0/1/1
+bandwidth 256
+
+
+!Hobart
+int s0/2/1
+bandwidth 256
+int s0/1/0
+bandwidth 256
+int s0/2/0
+bandwidth 256

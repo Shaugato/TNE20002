@@ -1,0 +1,153 @@
+SYDNEY ROUTER (INTERNAL)
+
+router OSPF 1
+!network VLAN 11 - Business
+network 77.32.0.0 0.0.1.255 area 0
+ 
+!network VLAN 12 - Printer
+network 77.32.7.236 0.0.0.3 area 0
+
+!network VLAN 13 - Security
+network 77.32.7.64 0.0.0.15 area 0
+
+!network VLAN 21 - Leasing
+network 77.32.4.0 0.0.0.255 area 0
+
+!network VLAN 22 - Marketing
+network 77.32.2.0 0.0.0.255 area 0
+
+!network VLAN 23 - Vehicle Servicing
+network 77.32.7.208 0.0.0.15 area 0
+
+!network VLAN 24 - Technical Support
+network 77.32.7.144 0.0.0.15 area 0
+
+!network VLAN 33 - Management
+network 77.32.6.224 0.0.0.31 area 0
+
+!network serial0/1/0 - serial 1
+network 77.32.7.240 0.0.0.3 area 0
+
+!network serial0/1/1 - serial 2A	3huzz	tf
+network 77.32.7.244 0.0.0.3 area 0
+
+passive-interface g0/0/1.11
+passive-interface g0/0/1.12
+passive-interface g0/0/1.13
+passive-interface g0/0/1.21
+passive-interface g0/0/1.22
+passive-interface g0/0/1.23
+passive-interface g0/0/1.24
+passive-interface g0/0/1.33
+
+-------------------------------------------------------------------------------
+PERTH ROUTER (INTERNAL)
+router ospf 2
+!network VLAN 33 MANAGEMENT
+network 77.32.6.192 0.0.0.31 area 0
+
+!network VLAN 41 SALES
+network 77.32.3.0 0.0.0.255 area 0
+
+!network VLAN 42 SECURITY
+network 77.32.7.80 0.0.0.15 area 0
+
+!network VLAN 43 TECHNICAL SUPPORT 
+network 77.32.7.128 0.0.0.15 area 0
+
+!network VLAN 44 VEHICLE SERVICING 
+network 77.32.7.192 0.0.0.15 area 0
+
+!network VLAN 45 printer 
+network 77.32.7.232 0.0.0.3 area 0
+
+!network serial 0/1/0 - Serial 2
+network 77.32.7.244 0.0.0.3 area 0
+
+!network serial 0/1/1 - serial 4
+network 77.32.7.252 0.0.0.3 area 0
+
+passive-interface g0/0/1.33
+passive-interface g0/0/1.41
+passive-interface g0/0/1.42
+passive-interface g0/0/1.43
+passive-interface g0/0/1.44
+passive-interface g0/0/1.45
+
+----------------------------------------------------------------------------
+MELBOURNE ROUTER (INTERNAL)
+router ospf 3
+!network VLAN 33 MANAGEMENT
+network 77.32.6.160 0.0.0.31 area 0
+
+!network VLAN 51 LEASING
+network 77.32.6.0 0.0.0.127 area 0
+
+!network VLAN 52 SECURITY
+network 77.32.7.48 0.0.0.15 area 0
+
+!network VLAN 53 VEHICLE SERVICING
+network 77.32.7.176 0.0.0.15 area 0
+
+!network VLAN 54 PRINTER
+network 77.32.7.228 0.0.0.3 area 0
+
+!network VLAN 55 Technical Support
+network 77.32.7.112 0.0.0.15 area 0
+
+!network serial0/1/0 - serial 4
+network 77.32.7.252 0.0.0.3 area 0
+
+!network serial0/1/1 - serial 3
+network 77.32.7.248 0.0.0.3 area 0
+
+
+passive-interface g0/0/1.33
+passive-interface g0/0/1.51
+passive-interface g0/0/1.52
+passive-interface g0/0/1.53
+passive-interface g0/0/1.54
+passive-interface g0/0/1.55
+
+--------------------------------------------------------------------------
+HOBART ROUTER (GATEWAY)
+ip route 0.0.0.0 0.0.0.0 s0/2/0
+router ospf 4
+!network VLAN 11 SECURITY
+network 77.32.7.32 0.0.0.15 area 0 
+
+!network VLAN 12 TECHNICAL SUPPORT
+network 77.32.7.96 0.0.0.15 area 0
+
+!network VLAN 13 VEHICLE_SERVICING
+network 77.32.7.160 0.0.0.15 area 0
+
+!network VLAN 14 SALES
+network 77.32.5.0 0.0.0.255 area 0
+
+!network VLAN 15 PRINTER
+network 77.32.7.224 0.0.0.3 area 0
+
+!network VLAN 33 MANAGEMENT
+network 77.32.6.128 0.0.0.31 area 0
+
+!network serial0/1/0 - serial 1
+network 77.32.7.240 0.0.0.3 area 0
+
+!network serial0/1/1 - serial 3
+network 77.32.7.248 0.0.0.3 area 0
+
+default-information originate
+
+passive-interface g0/0/1.11
+passive-interface g0/0/1.12
+passive-interface g0/0/1.13
+passive-interface g0/0/1.14
+passive-interface g0/0/1.15
+passive-interface g0/0/1.33
+
+
+!ISP ROUTING LEFT
+
+
+

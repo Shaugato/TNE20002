@@ -1,0 +1,274 @@
+Nat
+------------------------
+!157.2.0.0/21
+!NAT POOLFOR VLAN 11 Sydney
+ip nat pool POOLVLAN11SYDNEY 157.2.0.1 157.2.0.17 netmask 255.255.248.0
+!
+!NAT POOLFOR VLAN 12 Sydney(PRINTER)
+ip nat pool POOLVLAN12SYDNEY 157.2.0.18 157.2.0.30 netmask 255.255.248.0
+!
+NAT POOLFOR VLAN 13 Sydney
+ip nat pool POOLVLAN13SYDNEY 157.2.0.31 157.2.0.42 netmask 255.255.248.0
+!
+!NAT POOLFOR VLAN 21 Sydney
+ip nat pool POOLVLAN21SYDNEY 157.2.0.43 157.2.0.52 netmask 255.255.248.0
+!
+!NAT POOLFOR VLAN 22 Sydney
+ip nat pool POOLVLAN22SYDNEY 157.2.0.53 157.2.0.63 netmask 255.255.248.0
+!
+!NAT POOLFOR VLAN 23 Sydney
+ip nat pool POOLVLAN23SYDNEY 157.2.0.64 157.2.0.70 netmask 255.255.248.0
+!
+!NAT POOLFOR VLAN 24 Sydney
+ip nat pool POOLVLAN24SYDNEY 157.2.0.71 157.2.0.80 netmask 255.255.248.0
+!
+!NAT POOLFOR VLAN 33 Sydney
+ip nat pool POOLVLAN33SYDNEY 157.2.0.81 157.2.0.90 netmask 255.255.248.0
+!
+!NAT POOLFOR VLAN 11 HOBERT
+ip nat pool POOLVLAN11HOBERT 157.2.0.91 157.2.0.100 netmask 255.255.248.0
+!
+!NAT POOLFOR VLAN 12 HOBERT
+ip nat pool POOLVLAN12HOBERT 157.2.0.101 157.2.0.110 netmask 255.255.248.0
+!
+NAT POOLFOR VLAN 13 HOBERT
+ip nat pool POOLVLAN13HOBERT 157.2.0.111 157.2.0.120 netmask 255.255.248.0
+!
+!NAT POOLFOR VLAN 14 HOBERT
+ip nat pool POOLVLAN14HOBERT 157.2.0.121 157.2.0.130 netmask 255.255.248.0
+!
+!NAT POOLFOR VLAN 15 HOBERT(PRINTER)
+ip nat pool POOLVLAN15HOBERT 157.2.0.131 157.2.0.140 netmask 255.255.248.0
+!
+!NAT POOLFOR VLAN 33 HOBERT
+ip nat pool POOLVLAN33HOBERT 157.2.0.141 157.2.0.150 netmask 255.255.248.0
+!
+!NAT POOLFOR VLAN 33 MELBOURNE
+ip nat pool POOLVLAN33MELBOURNE 157.2.0.151 157.2.0.160 netmask 255.255.248.0
+!
+!NAT POOLFOR VLAN 51 MELBOURNE
+ip nat pool POOLVLAN51MELBOURNE 157.2.0.161 157.2.0.170 netmask 255.255.248.0
+!
+!NAT POOLFOR VLAN 33 MELBOURNE
+ip nat pool POOLVLAN33MELBOURNE 157.2.0.171 157.2.0.180 netmask 255.255.248.0
+!
+!NAT POOLFOR VLAN 51 MELBOURNE
+ip nat pool POOLVLAN51MELBOURNE 157.2.0.181 157.2.0.190 netmask 255.255.248.0
+!
+!NAT POOLFOR VLAN 52 MELBOURNE
+
+
+
+!
+!NAT POOLFOR VLAN 53 MELBOURNE
+ip nat pool POOLVLAN53MELBOURNE 157.2.0.201 157.2.0.210 netmask 255.255.248.0
+!
+!NAT POOLFOR VLAN 54 MELBOURNE ( PRINTER)
+ip nat pool POOLVLAN54MELBOURNE 157.2.0.211 157.2.0.215 netmask 255.255.248.0
+!
+!NAT POOLFOR VLAN 55 MELBOURNE
+ip nat pool POOLVLAN55MELBOURNE 157.2.0.216 157.2.0.220 netmask 255.255.248.0
+!
+!NAT POOLFOR VLAN 33 PERTH
+ip nat pool POOLVLAN33PERTH 157.2.0.221 157.2.0.225 netmask 255.255.248.0
+!
+!NAT POOLFOR VLAN 41 PERTH
+ip nat pool POOLVLAN41PERTH 157.2.0.226 157.2.0.230 netmask 255.255.248.0
+!
+!NAT POOLFOR VLAN 42 PERTH
+ip nat pool POOLVLAN42PERTH 157.2.0.231 157.2.0.235 netmask 255.255.248.0
+!
+!NAT POOLFOR VLAN 43 PERTH ( PRINTER)
+ip nat pool POOLVLAN43PERTH 157.2.0.236 157.2.0.240 netmask 255.255.248.0
+!
+!NAT POOLFOR VLAN 44 PERTH
+ip nat pool POOLVLAN44PERTH 157.2.0.241 157.2.0.245 netmask 255.255.248.0
+!
+!NAT POOLFOR VLAN 45 PERTH ( PRINTER )
+ip nat pool POOLVLAN45PERTH 157.2.0.246 157.2.0.250 netmask 255.255.248.0
+!
+
+----------------------
+!Nat Acces Control Lists
+
+ip access-list extended ACLVLANSYDNEY11
+permit ip 77.32.0.0 0.0.1.255 any
+ip access-list extended ACLVLANSYDNEY12
+permit ip 77.32.7.236 0.0.0.3 any
+ip access-list extended ACLVLANSYDNEY13
+permit ip 77.32.7.64 0.0.0.15 any
+ip access-list extended ACLVLANSYDNEY21
+permit ip 77.32.4.0 0.0.0.255 any
+ip access-list extended ACLVLANSYDNEY22
+permit ip 77.32.2.0 0.0.0.255 any
+ip access-list extended ACLVLANSYDNEY23
+permit ip 77.32.7.208 0.0.0.15 any
+ip access-list extended ACLVLANSYDNEY24
+permit ip 77.32.7.144 0.0.0.15 any
+ip access-list extended ACLVLANSYDNEY33
+permit ip 77.32.6.224 0.0.0.31 any
+ip access-list extended ACLVLANPERTH33
+permit ip 77.32.6.192 0.0.0.31 any
+ip access-list extended ACLVLANPERTH41
+permit ip 77.32.3.0 0.0.0.255 any
+ip access-list extended ACLVLANPERTH42
+permit ip 77.32.7.80 0.0.0.15 any
+ip access-list extended ACLVLANPERTH43
+permit ip 77.32.7.128 0.0.0.15 any
+ip access-list extended ACLVLANPERTH44
+permit ip 77.32.7.192 0.0.0.15 any
+ip access-list extended ACLVLANPERTH45
+permit ip 77.32.7.232 0.0.0.3 any
+ip access-list extended ACLVLANMELBORNE33
+permit ip 77.32.6.160 0.0.0.31 any
+ip access-list extended ACLVLANMELBORNE51
+permit ip 77.32.6.0 0.0.0.127 any
+ip access-list extended ACLVLANMELBORNE52
+permit ip 77.32.7.48 0.0.0.15 any
+ip access-list extended ACLVLANMELBORNE53
+permit ip 77.32.7.176 0.0.0.15 any
+ip access-list extended ACLVLANMELBORNE54
+permit ip 77.32.7.228 0.0.0.3 any
+ip access-list extended ACLVLANMELBORNE55
+permit ip 77.32.7.112 0.0.0.15 any
+ip access-list extended ACLVLANHOBERT11
+permit ip 77.32.7.32 0.0.0.15 any
+ip access-list extended ACLVLANBOBERT12
+permit ip 77.32.7.96 0.0.0.15 any
+ip access-list extended ACLVLANBOBERT13
+permit ip 77.32.7.160 0.0.0.15 any
+ip access-list extended ACLVLANBOBERT14
+permit ip 77.32.5.0 0.0.0.255 any
+ip access-list extended ACLVLANBOBERT15
+permit ip 77.32.7.224 0.0.0.3 any
+ip access-list extended ACLVLANBOBERT33
+permit ip 77.32.6.128 0.0.0.31 any
+
+
+------------------------------------
+
+!Establish Dynamic Source Translation by Binding the pool to the acces control list
+
+ip nat inside source list ACLVLANSYDNEY11 pool POOLVLAN11SYDNEY
+ip nat inside source list ACLVLANSYDNEY12 pool POOLVLAN12SYDNEY
+ip nat inside source list ACLVLANSYDNEY13 pool POOLVLAN13SYDNEY
+ip nat inside source list ACLVLANSYDNEY21 pool POOLVLAN21SYDNEY
+ip nat inside source list ACLVLANSYDNEY22 pool POOLVLAN22SYDNEY
+ip nat inside source list ACLVLANSYDNEY23 pool POOLVLAN23SYDNEY
+ip nat inside source list ACLVLANSYDNEY24 pool POOLVLAN24SYDNEY
+ip nat inside source list ACLVLANSYDNEY33 pool POOLVLAN33SYDNEY
+ip nat inside source list ACLVLANPERTH41 pool POOLVLAN41PERTH
+ip nat inside source list ACLVLANPERTH42 pool POOLVLAN42PERTH
+ip nat inside source list ACLVLANPERTH43 pool POOLVLAN43PERTH
+ip nat inside source list ACLVLANPERTH44 pool POOLVLAN44PERTH
+ip nat inside source list ACLVLANPERTH45 pool POOLVLAN45PERTH
+ip nat inside source list ACLVLANPERTH33 pool POOLVLAN33PERTH
+ip nat inside source list ACLVLANMELBORNE33 pool POOLVLAN33MELBOURNE
+ip nat inside source list ACLVLANMELBORNE51 pool POOLVLAN51MELBOURNE
+ip nat inside source list ACLVLANMELBORNE52 pool POOLVLAN52MELBOURNE
+ip nat inside source list ACLVLANMELBORNE53 pool POOLVLAN53MELBOURNE
+ip nat inside source list ACLVLANMELBORNE54 pool POOLVLAN54MELBOURNE
+ip nat inside source list ACLVLANMELBORNE55 pool POOLVLAN55MELBOURNE
+ip nat inside source list ACLVLANHOBERT11 pool POOLVLAN11HOBERT
+ip nat inside source list ACLVLANBOBERT13 pool POOLVLAN13HOBERT
+ip nat inside source list ACLVLANBOBERT12 pool POOLVLAN12HOBERT
+ip nat inside source list ACLVLANBOBERT14 pool POOLVLAN14HOBERT
+ip nat inside source list ACLVLANBOBERT15 pool POOLVLAN15HOBERT
+ip nat inside source list ACLVLANBOBERT33 pool POOLVLAN33HOBERT
+
+
+
+-----------------------
+!Business_Sydney
+access-list 1 permit 77.32.0.0 0.0.1.255
+!Marketing_Sydney
+access-list 1 permit 77.32.2.0 0.0.0.255
+!Sales_Perth
+access-list 1 permit 77.32.3.0 0.0.0.255
+!LeasingGroup_Sydney 
+access-list 1 permit 77.32.4.0 0.0.0.255
+!Sales_Hobert
+access-list 1 permit 77.32.5.0 0.0.0.255
+!Leasing_Melbourne
+access-list 1 permit 77.32.6.0 0.0.0.127
+!Management_Hobert
+access-list 1 permit 77.32.6.128 0.0.0.31
+!Management_Melbourne
+access-list 1 permit 77.32.6.160 0.0.0.31
+!Management_Pert
+access-list 1 permit 77.32.6.192 0.0.0.31
+!Management_Sydney
+access-list 1 permit 77.32.6.224 0.0.0.31
+!Security_Hobert
+access-list 1 permit 77.32.7.32 0.0.0.15
+!Security_Melbourne
+access-list 1 permit 77.32.7.48 0.0.0.15
+!Security_Sydney
+access-list 1 permit 77.32.7.64 0.0.0.15
+!Securiety_Perth
+access-list 1 permit 77.32.7.80 0.0.0.15
+!Technical_hobert
+access-list 1 permit 77.32.7.96 0.0.0.15
+!Technical_Melbourne
+access-list 1 permit 77.32.7.112 0.0.0.15
+!Technical_Perth
+access-list 1 permit 77.32.7.128 0.0.0.15
+!Technical_Sydney
+access-list 1 permit 77.32.7.144 0.0.0.15
+!Vehicle_Hobert
+access-list 1 permit 77.32.7.160 0.0.0.15
+!Vehicle_Melbourne
+access-list 1 permit 77.32.7.176 0.0.0.15
+!Vehicle_Perth
+access-list 1 permit 77.32.7.192 0.0.0.15
+!Vehicle_Sydney
+access-list 1 permit 77.32.7.208 0.0.0.15
+
+
+
+------------------------------
+
+!creating a nat pool
+ip nat pool POOLFORALLVLAN1 157.2.0.1 157.2.0.50 netmask 255.255.248.0
+
+-------------------------
+!implementing overload method
+ip nat inside source list 1 pool POOLFORALLVLAN1 overload
+
+------------------
+
+---------------
+!configuring inside and outside
+int s0/1/0
+ip nat inside
+int s0/1/1
+ip nat inside
+int s0/2/1
+ip nat inside
+int g0/0/1
+ip nat inside
+int g0/0/1.11
+ip nat inside
+int g0/0/1.12
+ip nat inside
+int g0/0/1.13
+ip nat inside
+int g0/0/1.14
+ip nat inside
+int g0/0/1.15
+ip nat inside
+int g0/0/1.33
+ip nat inside
+
+
+int s0/2/0
+ip nat outside
+
+-----------
+!isp router config 
+ip route 157.2.0.0 255.255.248.0 s0/1/0
+
+
+
+int g0/0/1
+ip nat inside

@@ -1,0 +1,42 @@
+ip access-list extended BUSINESS
+ permit icmp 77.32.0.0 0.0.1.255 77.32.7.144 0.0.0.15 echo-reply
+ deny ip 77.32.0.0 0.0.1.255 77.32.7.144 0.0.0.15
+ deny ip 77.32.0.0 0.0.1.255 77.32.7.16 0.0.0.15
+ permit ip any any
+ip access-list extended PRINTER
+ permit icmp 77.32.7.236 0.0.0.3 77.32.7.144 0.0.0.15 echo-reply
+ deny ip 77.32.7.236 0.0.0.3 77.32.7.144 0.0.0.15
+ deny ip 77.32.7.236 0.0.0.3 77.32.7.16 0.0.0.15
+ permit ip any any
+ip access-list extended Leasing
+ permit icmp 77.32.4.0 0.0.0.255 77.32.7.144 0.0.0.15 echo-reply
+ deny ip 77.32.4.0 0.0.0.255 77.32.7.144 0.0.0.15
+ deny ip 77.32.4.0 0.0.0.255 77.32.7.16 0.0.0.15
+ permit ip any any
+ip access-list extended MARKETING
+ permit icmp 77.32.2.0 0.0.0.255 77.32.7.144 0.0.0.15 echo-reply
+ deny ip 77.32.2.0 0.0.0.255 77.32.7.144 0.0.0.15
+ permit icmp 77.32.2.0 0.0.0.255 77.32.4.0 0.0.0.255 echo-reply
+ deny ip 77.32.2.0 0.0.0.255 77.32.4.0 0.0.0.255
+ deny ip 77.32.2.0 0.0.0.255 77.32.7.16 0.0.0.15
+ permit ip any any
+ip access-list extended SECURITY
+ permit icmp 77.32.7.64 0.0.0.15 77.32.7.144 0.0.0.15 echo-reply
+ deny ip 77.32.7.64 0.0.0.15 77.32.7.144 0.0.0.15
+ permit ip any any
+ip access-list extended VECHICLE
+ permit icmp 77.32.7.208 0.0.0.15 77.32.0.0 0.0.1.255 echo-reply
+ deny ip 77.32.7.208 0.0.0.15 77.32.0.0 0.0.1.255
+ permit icmp 77.32.7.208 0.0.0.15 77.32.7.236 0.0.0.3 echo-reply
+ deny ip 77.32.7.208 0.0.0.15 77.32.7.236 0.0.0.3
+ permit icmp 77.32.7.208 0.0.0.15 77.32.7.64 0.0.0.15 echo-reply
+ deny ip 77.32.7.208 0.0.0.15 77.32.7.64 0.0.0.15
+ permit icmp 77.32.7.208 0.0.0.15 77.32.4.0 0.0.0.255 echo-reply
+ deny ip 77.32.7.208 0.0.0.15 77.32.4.0 0.0.0.255
+ permit icmp 77.32.7.208 0.0.0.15 77.32.2.0 0.0.0.255 echo-reply
+ deny ip 77.32.7.208 0.0.0.15 77.32.2.0 0.0.0.255
+ permit icmp 77.32.7.208 0.0.0.15 77.32.7.144 0.0.0.15 echo-reply
+ deny ip 77.32.7.208 0.0.0.15 77.32.7.144 0.0.0.15
+ permit icmp 77.32.7.208 0.0.0.15 77.32.7.16 0.0.0.15 echo-reply
+ deny ip 77.32.7.208 0.0.0.15 77.32.7.16 0.0.0.15
+ permit ip any any
